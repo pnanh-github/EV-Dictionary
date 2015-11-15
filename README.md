@@ -1,1 +1,3 @@
-# English---Viet-Dictionary
+# EV-Dictionary
+
+EV - Dictionary is an offline, ads-free English - Vietnamese dictionary program, with clean and very easy to use UI. Besides normal search, EV - Dictionary allows you to use camera to look up words. The program also supports use camera to translate a whole English text to Vietnamese. EV - Dictionary is a very helpful tool for learning English, especially for students preparing for TOEFL, TOEIC, and IELTS examinations. The dictionary has more than 300,000 most-frequently used words and phrases. Key features: - English Vietnamese dictionary has more than 300,000 words and phrases, including pronunciation audio. - Support to look up words by camera - Support to translate a whole text by camera - Approximate look-up. - Easy to use tab UI, which allows you to quickly swipe between sections, and look up word in just one tap. - History tab lists words recently looked up. 
