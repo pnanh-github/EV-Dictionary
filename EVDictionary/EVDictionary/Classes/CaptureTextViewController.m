@@ -73,7 +73,7 @@
     
     UIImage *img = info[UIImagePickerControllerEditedImage];
     if(img==nil) img = info[UIImagePickerControllerOriginalImage];
-    self.imgText.image = img;
+    self.imgText.image = [self scaleImage:img :640];
     
     [picker dismissViewControllerAnimated:true completion:nil];
     self._Indicator.hidden = false;
@@ -100,6 +100,28 @@
     
 }
 
+-(UIImage*) scaleImage :(UIImage *) image :(CGFloat) maxDimension{
+    
+    CGSize scaledSize = CGSizeMake(maxDimension,maxDimension);
+    CGFloat scaleFactor;
+    
+    if (image.size.width > image.size.height) {
+        scaleFactor = image.size.height / image.size.width;
+        scaledSize.width = maxDimension;
+        scaledSize.height = scaledSize.width * scaleFactor;
+    } else {
+        scaleFactor = image.size.width / image.size.height;
+        scaledSize.height = maxDimension;
+        scaledSize.width = scaledSize.height * scaleFactor;
+    }
+    
+    UIGraphicsBeginImageContext(scaledSize);
+    [image drawInRect:(CGRectMake(0, 0, scaledSize.width, scaledSize.height))];
+    id scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"Preview"]){
         NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
